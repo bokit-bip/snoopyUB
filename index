@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SnoopyUB Navbar</title>
+  <title>Interactive Background</title>
   <link rel="stylesheet" href="joecool.css">
+  <script src="background.js" defer></script> <!-- Link to the JavaScript for the interactive background -->
 </head>
 <body>
+  <div class="background-container">
+    <!-- The interactive background will render here -->
+    <canvas id="backgroundCanvas"></canvas>
+  </div>
   <nav class="navbar">
     <div class="logo">
       <img src="logo.png" alt="SnoopyUB Logo" height="40">
