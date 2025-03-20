@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnoopyUB Navbar</title>
+  <link rel="stylesheet" href="joecool.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="SnoopyUB Logo" height="40">
+    </div>
+    <h1 class="brand-name">SnoopyUB</h1>
+  </nav>
+</body>
+</html>
