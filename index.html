@@ -3,34 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Background</title>
+  <title>SnoopyUB Interactive</title>
   <link rel="stylesheet" href="joecool.css">
   <script src="three.r134.min.js"></script>
-<script src="vanta.net.min.js"></script>
-<script>
-VANTA.NET({
-  el: "#your-element-selector",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00,
-  color: 0xf9f6f8
-})
-</script>
+  <script src="vanta.net.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+      position: relative;
+      z-index: 10;
+    }
+    .logo img {
+      margin-right: 10px;
+    }
+    .brand-name {
+      font-size: 1.5em;
+      margin: 0;
+    }
+    .main-content {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .main-content h1 {
+      font-size: 3em;
+      margin: 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="background-container">
-    <!-- The interactive background will render here -->
-    <canvas id="backgroundCanvas"></canvas>
-  </div>
+  <div id="background"></div> <!-- Updated to target this ID -->
   <nav class="navbar">
     <div class="logo">
       <img src="logo.png" alt="SnoopyUB Logo" height="40">
     </div>
     <h1 class="brand-name">SnoopyUB</h1>
   </nav>
+  <div class="main-content">
+    <h1>Welcome to SnoopyUB</h1>
+  </div>
+  
+  <script>
+    // Initialize Vanta.js effect on the correct container
+    VANTA.NET({
+      el: "#background", // Updated to match the div ID
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0xf9f6f8,
+      backgroundColor: 0x1a1a1a, // Optional: Set a background color
+      points: 10.0, // Adjusted for cool effect
+      maxDistance: 20.0, // Adjusted for better line visibility
+    });
+  </script>
 </body>
 </html>
