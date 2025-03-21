@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://unblockedovo.github.io/sitemap.xml
