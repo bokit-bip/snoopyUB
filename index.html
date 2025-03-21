@@ -29,11 +29,13 @@
         <img class="clickable-image" src="unnamed.png" alt="Cookie Clicker" width="100">
       </a>
       <a href="/ovo-main/index.html">
-        <img class="clickable-image" src="ovo.png" alt="Cookie Clicker" width="100">
+        <img class="clickable-image" src="ovo.png" alt="Ovo" width="100">
       </a>
       <a href="/superm64-main/index.html">
-        <img class="clickable-image" src="2c138eb2b338d6f0db383d47ccedb946.png" alt="Cookie Clicker" width="100">
+        <img class="clickable-image" src="2c138eb2b338d6f0db383d47ccedb946.png" alt="Super Mario 64" width="100">
+      </a>
     </div>
+    <button class="button-16" onclick="redirectToSite()">Press This For ab blank</button>
   </div>
   
   <script>
@@ -52,6 +54,21 @@
       points: 10.0,
       maxDistance: 20.0,
     });
+
+    // Redirect function for the button
+    function redirectToSite() {
+      var win = window.open("about:blank"); // Open a blank new tab/window
+      var url = "https://mj89sp3sau2k7lj1eg3k40hkeppguj6j-a-sites-opensocial.googleusercontent.com/gadgets/ifr?container=enterprise&country=ALL&lang=en&libs=core&parent=https://sites.google.com/site/minecraftunblockedez/&sanitize=0&url=http://www.gstatic.com/sites-gadgets/iframe/iframe.xml&v=26e2802a3b854818&view=default#up_scroll=auto&up_iframeURL=https://www-sites-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/s022s4h6/minecraft-classic2.xml&st=e=AIHE3cCHccremKWj6%252F9u3pKNryGvskOeSCiodTt6UXk2xu0sn3NgsKTRRQd62N1fTQHQjxSJ0VoEHj4%252Fh81B5U1YbUwYHANyfxycGQTWGcyYbZb8iVrgb1vWx4qrVkoz74qb37NKMWs8&c=enterprise&rpctoken=-5820420941461032063";
+      if (url) {
+        var iframe = document.createElement("iframe");
+        iframe.style.border = "none";
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.margin = "0";
+        iframe.src = url"https://snoopyub.org/"; // Load the specified URL
+        win.document.body.appendChild(iframe);
+      }
+    }
   </script>
 </body>
 </html>
