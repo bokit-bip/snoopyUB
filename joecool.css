@@ -3,32 +3,19 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: auto;
-  background: linear-gradient(135deg, #2a2d34, #1a1d24);
+  overflow-y: auto; /* Enables vertical scrolling */
+  font-family: "Poppins", sans-serif; /* Modern font */
   color: #f5f5f5;
-  font-family: "Poppins", sans-serif; /* Modern font choice */
 }
 
-/* Background container setup */
+/* Background container remains as is */
 #interactivebg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   min-height: 100%;
-  z-index: -1;
-  animation: smooth-fade 2s ease-in-out; /* Smooth fade-in animation */
-}
-
-@keyframes smooth-fade {
-  from {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  z-index: -1; /* Background stays behind all content */
 }
 
 /* Navbar setup */
@@ -52,7 +39,7 @@ html, body {
 }
 
 .logo img:hover {
-  transform: rotate(10deg) scale(1.2); /* Playful hover effect */
+  transform: rotate(10deg) scale(1.2);
 }
 
 .brand-name {
@@ -66,15 +53,16 @@ html, body {
 .main-content {
   padding: 40px 20px;
   margin-top: 80px; /* Space for fixed navbar */
-  background: rgba(40, 40, 40, 0.8);
+  background: rgba(40, 40, 40, 0.85); /* Slight transparency */
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+  z-index: 1; /* Above the background */
 }
 
 /* Image container styling */
 .image-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
   gap: 20px;
 }
 
@@ -89,17 +77,17 @@ html, body {
 .clickable-image img {
   width: 100%;
   height: auto;
-  transition: transform 0.5s ease; /* Adds dynamic zoom effect */
+  transition: transform 0.5s ease;
 }
 
 .clickable-image:hover {
-  transform: translateY(-10px) scale(1.05); /* Lift effect with zoom */
+  transform: translateY(-10px) scale(1.05); /* Lift and zoom effect */
   box-shadow: 0 6px 15px rgba(0, 170, 255, 0.5);
   border-color: #00aaff;
 }
 
 .clickable-image:hover img {
-  transform: scale(1.1); /* Image zooms in further */
+  transform: scale(1.1); /* Image zooms further */
 }
 
 /* Button styling */
@@ -120,7 +108,7 @@ html, body {
 
 .button-16:hover {
   background: linear-gradient(90deg, #005f88, #003f66);
-  transform: translateY(-3px) scale(1.1); /* Adds movement and scaling */
+  transform: translateY(-3px) scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 170, 255, 0.6);
 }
 
