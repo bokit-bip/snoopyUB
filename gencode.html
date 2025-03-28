@@ -91,7 +91,7 @@
     </tbody>
   </table>
   <script>
-    let codes = JSON.parse(localStorage.getItem("generatedCodes")) || {}; // Persist codes in localStorage
+    let codes = JSON.parse(localStorage.getItem("generatedCodes")) || {}; // Retrieve or initialize codes
 
     function generateCode() {
       const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -107,8 +107,8 @@
       const name = prompt("Enter the person's name:");
       if (name) {
         const newCode = generateCode();
-        codes[name] = newCode; // Save the code in the local codes object
-        localStorage.setItem("generatedCodes", JSON.stringify(codes)); // Update localStorage
+        codes[name] = newCode; // Add code to the local codes object
+        localStorage.setItem("generatedCodes", JSON.stringify(codes)); // Save codes to localStorage
         document.getElementById("generated-code").textContent = `Generated Code for ${name}: ${newCode}`;
         updateLogsTable();
       }
