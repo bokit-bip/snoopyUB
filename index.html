@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snoopymath.org</title>
+  <title>Authentication Page</title>
   <style>
     /* General Styling */
     body {
@@ -86,8 +86,8 @@
     </div>
   </div>
   <script>
-    // Codes object will be populated from codegen.html
-    let codes = JSON.parse(localStorage.getItem("generatedCodes")) || {}; // Retrieve codes from localStorage
+    // Retrieve codes generated in gencode.html from localStorage
+    let codes = JSON.parse(localStorage.getItem("generatedCodes")) || {}; 
 
     document.getElementById("auth-form").addEventListener("submit", (event) => {
       event.preventDefault();
@@ -96,7 +96,7 @@
 
       if (codes[name] && codes[name] === enteredCode) {
         alert("Access granted!");
-        document.getElementById("auth-overlay").style.display = "none";
+        document.getElementById("auth-overlay").style.display = "none"; // Hide overlay
       } else {
         document.getElementById("auth-message").textContent = "Invalid name or code. Please try again.";
       }
