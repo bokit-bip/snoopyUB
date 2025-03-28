@@ -48,12 +48,6 @@
       background: #0056b3;
     }
 
-    .code-display {
-      margin-top: 15px;
-      font-family: monospace;
-      color: #00ff88;
-    }
-
     table {
       margin-top: 20px;
       width: 100%;
@@ -75,9 +69,9 @@
 </head>
 <body>
   <div class="code-gen-box">
-    <h2>Generate a Code</h2>
+    <h2>Generate or Delete Codes</h2>
     <button id="generate-code-btn">Generate Code</button>
-    <div class="code-display" id="generated-code"></div>
+    <button id="delete-code-btn">Delete Code</button>
   </div>
   <table>
     <thead>
@@ -96,35 +90,4 @@
     function generateCode() {
       const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       let code = "";
-      for (let i = 0; i < 6; i++) {
-        const randomIndex = Math.floor(Math.random() * chars.length);
-        code += chars[randomIndex];
-      }
-      return code;
-    }
-
-    document.getElementById("generate-code-btn").addEventListener("click", () => {
-      const name = prompt("Enter the person's name:");
-      if (name) {
-        const newCode = generateCode();
-        codes[name] = newCode; // Add code to the local codes object
-        localStorage.setItem("generatedCodes", JSON.stringify(codes)); // Save codes to localStorage
-        document.getElementById("generated-code").textContent = `Generated Code for ${name}: ${newCode}`;
-        updateLogsTable();
-      }
-    });
-
-    function updateLogsTable() {
-      const tableBody = document.getElementById("logs-table");
-      tableBody.innerHTML = ""; // Clear existing rows
-      Object.entries(codes).forEach(([name, code]) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>${name}</td><td>${code}</td>`;
-        tableBody.appendChild(row);
-      });
-    }
-
-    updateLogsTable(); // Populate logs table on page load
-  </script>
-</body>
-</html>
+     
