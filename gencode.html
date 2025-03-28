@@ -65,11 +65,26 @@
       background: #333;
       color: #00aaff;
     }
+
+    #clear-codes-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ff5555;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #clear-codes-btn:hover {
+      background: #cc4444;
+    }
   </style>
 </head>
 <body>
   <div class="code-gen-box">
-    <h2>Generate or Delete Codes</h2>
+    <h2>Generate or Manage Codes</h2>
     <button id="generate-code-btn">Generate Code</button>
     <button id="delete-code-btn">Delete Code</button>
   </div>
@@ -84,10 +99,69 @@
       <!-- Logs will be dynamically populated -->
     </tbody>
   </table>
+  <button id="clear-codes-btn">Clear All Codes</button>
+
   <script>
     let codes = JSON.parse(localStorage.getItem("generatedCodes")) || {}; // Retrieve or initialize codes
 
+    // Function to generate a random code
     function generateCode() {
       const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       let code = "";
-     
+      for (let i = 0; i < 6; i++) {
+        const randomIndex = Math.floor(Math.random() * chars.length);
+        code += chars[randomIndex];
+      }
+      return code;
+    }
+
+    // Generate Code Button
+    document.getElementById("generate-code-btn").addEventListener("click", () => {
+      const name = prompt("Enter the person's name:");
+      if (name) {
+        const newCode = generateCode();
+        codes[name] = newCode; // Add code to the local codes object
+        localStorage.setItem("generatedCodes", JSON.stringify(codes)); // Save codes to localStorage
+        updateLogsTable(); // Refresh the table
+        alert(`Generated Code for ${name}: ${newCode}`);
+      }
+    });
+
+    // Delete Code Button
+    document.getElementById("delete-code-btn").addEventListener("click", () => {
+      const name = prompt("Enter the name to delete the code:");
+      if (name && codes[name]) {
+        delete codes[name]; // Remove code from the local codes object
+        localStorage.setItem("generatedCodes", JSON.stringify(codes)); // Update localStorage
+        updateLogsTable(); // Refresh the table
+        alert(`Code for ${name} has been deleted.`);
+      } else {
+        alert("No code found for the specified name.");
+      }
+    });
+
+    // Clear All Codes Button
+    document.getElementById("clear-codes-btn").addEventListener("click", () => {
+      if (confirm("Are you sure you want to clear all codes?")) {
+        codes = {}; // Clear all codes
+        localStorage.setItem("generatedCodes", JSON.stringify(codes)); // Update localStorage
+        updateLogsTable(); // Refresh the table
+        alert("All codes have been cleared.");
+      }
+    });
+
+    // Function to populate the logs table
+    function updateLogsTable() {
+      const tableBody = document.getElementById("logs-table");
+      tableBody.innerHTML = ""; // Clear existing rows
+      Object.entries(codes).forEach(([name, code]) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${name}</td><td>${code}</td>`;
+        tableBody.appendChild(row);
+      });
+    }
+
+    updateLogsTable(); // Populate logs table on page load
+  </script>
+</body>
+</html>
